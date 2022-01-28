@@ -20,7 +20,6 @@ test('sanity check', () => {
 })
 
 describe('GET /api/jokes', () => {
-
   test('returns a status 200 OK', async () => {
     const res = await request(server)
       .get('/api/jokes')
@@ -40,7 +39,6 @@ describe('POST /api/auth/register', () => {
     const res = await request(server)
       .post('/api/auth/register')
       .send({ username: 'Vaporeon', password: '1234' })
-    console.log(res)
     expect(res.status).toBe(201)
   })
   test('returns a status 422 Unprocessable Entity', async () => {
