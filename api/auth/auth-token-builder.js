@@ -7,7 +7,7 @@ function tokenBuilder(user) {
 		username: user.username,
 	}
 	const options = {
-		expiresIn: '1d',
+		expiresIn: '3d',
 	}
 	const token = jwt.sign(payload, JWT_SECRET, options)
 
