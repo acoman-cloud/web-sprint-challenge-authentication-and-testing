@@ -3,12 +3,12 @@ const bcrypt = require('bcryptjs')
 const db = require('../../data/dbConfig')
 const tokenBuilder = require('./auth-token-builder')
 const {
-  checkUsernameExists,
+  checkUsernameLogin,
   checkBodyExists,
-  checkUsername
+  checkUsernameRegister
 } = require('../middleware/auth-middleware')
 
-router.post('/register', checkBodyExists, checkUsernameExists, async (req, res, next) => {
+router.post('/register', checkBodyExists, checkUsernameRegister, async (req, res, next) => {
   /*
     IMPLEMENT
     You are welcome to build additional middlewares to help with the endpoint's functionality.
@@ -42,7 +42,7 @@ router.post('/register', checkBodyExists, checkUsernameExists, async (req, res, 
   res.status(201).json(User)
 });
 
-router.post('/login', checkBodyExists, checkUsernameExists, async (req, res, next) => {
+router.post('/login', checkBodyExists, checkUsernameLogin, async (req, res, next) => {
   /*
     IMPLEMENT
     You are welcome to build additional middlewares to help with the endpoint's functionality.
